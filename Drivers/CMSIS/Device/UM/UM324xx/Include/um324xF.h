@@ -149,8 +149,8 @@ typedef enum IRQn
 	QSPI_IRQn                   = 90,
 	IWDT_IRQn           	    = 93,
 	LPUART_IRQn       	      = 107,
-	LPTIMER0_IRQn       	    = 109,
-	LPTIMER1_IRQn       	    = 110,
+	LPTIMER1_IRQn       	    = 109,
+	LPTIMER2_IRQn       	    = 110,
 }IRQn_Type;
 
 /**
@@ -1690,8 +1690,8 @@ typedef struct
 #define WWDT_BASE               (AHB2APB0PERIPH_BASE + 0x5000UL)
 #define IWDT_BASE               (AHB2APB0PERIPH_BASE + 0x6000UL)
 #define LPUART_BASE             (AHB2APB0PERIPH_BASE + 0x7000UL)
-#define LPTIM0_BASE             (AHB2APB0PERIPH_BASE + 0x9000UL)
-#define LPTIM1_BASE             (AHB2APB0PERIPH_BASE + 0xA000UL)
+#define LPTIM1_BASE             (AHB2APB0PERIPH_BASE + 0x9000UL)
+#define LPTIM2_BASE             (AHB2APB0PERIPH_BASE + 0xA000UL)
 #define RNG_BASE                (AHB2APB0PERIPH_BASE + 0xD000UL)
 
 /*!< APB1 peripherals */
@@ -1790,8 +1790,8 @@ typedef struct
 #define WWDT                        ((WWDT_TypeDef*)WWDT_BASE)
 #define IWDT                        ((IWDT_TypeDef*)IWDT_BASE)
 #define LPUART                      ((LPUART_TypeDef*)LPUART_BASE)
-#define LPTIM0                      ((LPTIM_TypeDef*)LPTIM0_BASE)
 #define LPTIM1                      ((LPTIM_TypeDef*)LPTIM1_BASE)
+#define LPTIM2                      ((LPTIM_TypeDef*)LPTIM2_BASE)
 #define RNG                         ((RNG_TypeDef*)RNG_BASE)
 #define TIM2                        ((TIM_TypeDef*)TIM2_BASE)
 #define TIM3                        ((TIM_TypeDef*)TIM3_BASE)
@@ -3336,12 +3336,12 @@ typedef struct
 #define PMU_PDWKCR_LPUART_WKE_Pos                           (5U)                                                        
 #define PMU_PDWKCR_LPUART_WKE_Msk                           (0x1UL<<PMU_PDWKCR_LPUART_WKE_Pos)                          /*!< 0x00000020 */                                          
 #define PMU_PDWKCR_LPUART_WKE                               PMU_PDWKCR_LPUART_WKE_Msk                                   /*!< LPUART_WKE bit */                                      
-#define PMU_PDWKCR_LPTIM0_WKE_Pos                           (6U)                                                        
-#define PMU_PDWKCR_LPTIM0_WKE_Msk                           (0x1UL<<PMU_PDWKCR_LPTIM0_WKE_Pos)                          /*!< 0x00000040 */                                          
-#define PMU_PDWKCR_LPTIM0_WKE                               PMU_PDWKCR_LPTIM0_WKE_Msk                                   /*!< LPTIM0_WKE bit */                                      
-#define PMU_PDWKCR_LPTIM1_WKE_Pos                           (7U)                                                        
-#define PMU_PDWKCR_LPTIM1_WKE_Msk                           (0x1UL<<PMU_PDWKCR_LPTIM1_WKE_Pos)                          /*!< 0x00000080 */                                          
-#define PMU_PDWKCR_LPTIM1_WKE                               PMU_PDWKCR_LPTIM1_WKE_Msk                                   /*!< LPTIM1_WKE bit */                                      
+#define PMU_PDWKCR_LPTIM1_WKE_Pos                           (6U)
+#define PMU_PDWKCR_LPTIM1_WKE_Msk                           (0x1UL<<PMU_PDWKCR_LPTIM1_WKE_Pos)                          /*!< 0x00000040 */
+#define PMU_PDWKCR_LPTIM1_WKE                               PMU_PDWKCR_LPTIM1_WKE_Msk                                   /*!< LPTIM1_WKE bit */
+#define PMU_PDWKCR_LPTIM2_WKE_Pos                           (7U)
+#define PMU_PDWKCR_LPTIM2_WKE_Msk                           (0x1UL<<PMU_PDWKCR_LPTIM2_WKE_Pos)                          /*!< 0x00000080 */
+#define PMU_PDWKCR_LPTIM2_WKE                               PMU_PDWKCR_LPTIM2_WKE_Msk                                   /*!< LPTIM2_WKE bit */
 #define PMU_PDWKCR_PA2_WKE_Pos                              (8U)                                                        
 #define PMU_PDWKCR_PA2_WKE_Msk                              (0x1UL<<PMU_PDWKCR_PA2_WKE_Pos)                             /*!< 0x00000100 */                                          
 #define PMU_PDWKCR_PA2_WKE                                  PMU_PDWKCR_PA2_WKE_Msk                                      /*!< PA2_WKE bit */                                         
@@ -3523,12 +3523,12 @@ typedef struct
 #define PMU_FCCR_IWDTEN_Pos                                 (1U)                                                        
 #define PMU_FCCR_IWDTEN_Msk                                 (0x1UL<<PMU_FCCR_IWDTEN_Pos)                                /*!< 0x00000002 */                                          
 #define PMU_FCCR_IWDTEN                                     PMU_FCCR_IWDTEN_Msk                                         /*!< IWDTEN bit */                                          
-#define PMU_FCCR_LPTIM0EN_Pos                               (2U)                                                        
-#define PMU_FCCR_LPTIM0EN_Msk                               (0x1UL<<PMU_FCCR_LPTIM0EN_Pos)                              /*!< 0x00000004 */                                          
-#define PMU_FCCR_LPTIM0EN                                   PMU_FCCR_LPTIM0EN_Msk                                       /*!< LPTIM0EN bit */                                        
-#define PMU_FCCR_LPTIM1EN_Pos                               (3U)                                                        
-#define PMU_FCCR_LPTIM1EN_Msk                               (0x1UL<<PMU_FCCR_LPTIM1EN_Pos)                              /*!< 0x00000008 */                                          
-#define PMU_FCCR_LPTIM1EN                                   PMU_FCCR_LPTIM1EN_Msk                                       /*!< LPTIM1EN bit */                                        
+#define PMU_FCCR_LPTIM1EN_Pos                               (2U)
+#define PMU_FCCR_LPTIM1EN_Msk                               (0x1UL<<PMU_FCCR_LPTIM1EN_Pos)                              /*!< 0x00000004 */
+#define PMU_FCCR_LPTIM1EN                                   PMU_FCCR_LPTIM1EN_Msk                                       /*!< LPTIM1EN bit */
+#define PMU_FCCR_LPTIM2EN_Pos                               (3U)
+#define PMU_FCCR_LPTIM2EN_Msk                               (0x1UL<<PMU_FCCR_LPTIM2EN_Pos)                              /*!< 0x00000008 */
+#define PMU_FCCR_LPTIM2EN                                   PMU_FCCR_LPTIM2EN_Msk                                       /*!< LPTIM2EN bit */
 #define PMU_FCCR_RTCEN_Pos                                  (6U)                                                        
 #define PMU_FCCR_RTCEN_Msk                                  (0x1UL<<PMU_FCCR_RTCEN_Pos)                                 /*!< 0x00000040 */                                          
 #define PMU_FCCR_RTCEN                                      PMU_FCCR_RTCEN_Msk                                          /*!< RTCEN bit */ 
@@ -3540,12 +3540,12 @@ typedef struct
 #define PMU_FRCR_IWDTRST_Pos                                (1U)                                                        
 #define PMU_FRCR_IWDTRST_Msk                                (0x1UL<<PMU_FRCR_IWDTRST_Pos)                               /*!< 0x00000002 */                                          
 #define PMU_FRCR_IWDTRST                                    PMU_FRCR_IWDTRST_Msk                                        /*!< IWDTRST bit */                                         
-#define PMU_FRCR_LPTIM0RST_Pos                              (2U)                                                        
-#define PMU_FRCR_LPTIM0RST_Msk                              (0x1UL<<PMU_FRCR_LPTIM0RST_Pos)                             /*!< 0x00000004 */                                          
-#define PMU_FRCR_LPTIM0RST                                  PMU_FRCR_LPTIM0RST_Msk                                      /*!< LPTIM0RST bit */                                       
-#define PMU_FRCR_LPTIM1RST_Pos                              (3U)                                                        
-#define PMU_FRCR_LPTIM1RST_Msk                              (0x1UL<<PMU_FRCR_LPTIM1RST_Pos)                             /*!< 0x00000008 */                                          
-#define PMU_FRCR_LPTIM1RST                                  PMU_FRCR_LPTIM1RST_Msk                                      /*!< LPTIM1RST bit */                                       
+#define PMU_FRCR_LPTIM1RST_Pos                              (2U)
+#define PMU_FRCR_LPTIM1RST_Msk                              (0x1UL<<PMU_FRCR_LPTIM1RST_Pos)                             /*!< 0x00000004 */
+#define PMU_FRCR_LPTIM1RST                                  PMU_FRCR_LPTIM1RST_Msk                                      /*!< LPTIM1RST bit */
+#define PMU_FRCR_LPTIM2RST_Pos                              (3U)
+#define PMU_FRCR_LPTIM2RST_Msk                              (0x1UL<<PMU_FRCR_LPTIM2RST_Pos)                             /*!< 0x00000008 */
+#define PMU_FRCR_LPTIM2RST                                  PMU_FRCR_LPTIM2RST_Msk                                      /*!< LPTIM2RST bit */
 #define PMU_FRCR_RTCRST_Pos                                 (6U)                                                        
 #define PMU_FRCR_RTCRST_Msk                                 (0x1UL<<PMU_FRCR_RTCRST_Pos)                                /*!< 0x00000040 */                                          
 #define PMU_FRCR_RTCRST                                     PMU_FRCR_RTCRST_Msk                                         /*!< RTCRST bit */ 

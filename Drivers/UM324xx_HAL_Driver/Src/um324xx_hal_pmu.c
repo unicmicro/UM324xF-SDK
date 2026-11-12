@@ -299,8 +299,8 @@ void HAL_PMU_Disable_StandbyMode_WakeUpPin(uint32_t WakeUpPinx)
   * @param WK_EVENT Select the four IO types to wake up in standby mode
   *          This parameter can be one of the following values:
   *            @arg PMU_WKE_LPUART1: In standby0 mode,LPUART1 wakes up
+  *            @arg PMU_WKE_LPTIM2: In standby0 mode,LPTIM2 wakes up
   *            @arg PMU_WKE_LPTIM1: In standby0 mode,LPTIM1 wakes up
-  *            @arg PMU_WKE_LPTIM0: In standby0 mode,LPTIM0 wakes up
   *            @arg PMU_WKE_LPUART0: In standby0 mode,LPUART0 wakes up
   *            @arg PMU_WKE_IWDT: In standby0 mode,IWDT wakes up
   *            @arg PMU_WKE_RTC_TAMP: In standby0/standby1 mode,RTC TAMP wakes up 
@@ -325,8 +325,8 @@ void HAL_PMU_Enable_StandbyMode_WakeUpEvent(uint32_t WakeUpSource)
   * @param WK_EVENT Select the four IO types to wake up in standby mode
   *          This parameter can be one of the following values:
   *            @arg PMU_WKE_LPUART1: In standby0 mode,LPUART1 wakes up
+  *            @arg PMU_WKE_LPTIM2: In standby0 mode,LPTIM2 wakes up
   *            @arg PMU_WKE_LPTIM1: In standby0 mode,LPTIM1 wakes up
-  *            @arg PMU_WKE_LPTIM0: In standby0 mode,LPTIM0 wakes up
   *            @arg PMU_WKE_LPUART0: In standby0 mode,LPUART0 wakes up
   *            @arg PMU_WKE_IWDT: In standby0 mode,IWDT wakes up
   *            @arg PMU_WKE_RTC_TAMP: In standby0/standby1 mode,RTC TAMP wakes up 

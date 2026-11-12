@@ -1373,8 +1373,8 @@ uint32_t HAL_ADC_GetError(ADC_HandleTypeDef *hadc)
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_IT11_syscfg
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_IT10_syscfg
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_IT6_syscfg
-    *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_lptim0out_syscfg 
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_lptim1out_syscfg
+    *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_lptim2out_syscfg
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_acmp0out_syscfg
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_acmp1out_syscfg
     *            @arg  ADC_RGLEXTERNALTRIGCONV_Ext_acmp2out_syscfg
@@ -1404,8 +1404,8 @@ HAL_StatusTypeDef ADC_EXT_RGL_TRIG_SYSCFG(ADC_HandleTypeDef* hadc,uint32_t trig)
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_IT15_syscfg
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_IT9_syscfg
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_IT5_syscfg
-    *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_lptim0out_syscfg 
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_lptim1out_syscfg
+    *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_lptim2out_syscfg
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_acmp0out_syscfg
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_acmp1out_syscfg
     *            @arg  ADC_INJEXTERNALTRIGCONV_Ext_acmp2out_syscfg

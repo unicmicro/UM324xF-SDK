@@ -168,16 +168,6 @@ typedef enum
                                         UNUSED(tmpreg); \
                                        } while(0U)
 
-#define __HAL_PMU_LPTIM0_CLK_ENABLE()   do { \
-                                       __IO uint32_t tmpreg = 0x00U;\
-                                       __HAL_PMU_UNLOCK_REGISTER();\
-                                       SET_BIT(PMU->FCCR, PMU_FCCR_LPTIM0EN);\
-                                       __HAL_PMU_LOCK_REGISTER();\
-                                       /* Delay after an PMU function clock enabling */ \
-                                       tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM0EN);\
-                                       UNUSED(tmpreg); \
-                                       } while(0U)
-                                                                                        
 #define __HAL_PMU_LPTIM1_CLK_ENABLE()   do { \
                                        __IO uint32_t tmpreg = 0x00U;\
                                        __HAL_PMU_UNLOCK_REGISTER();\
@@ -185,6 +175,16 @@ typedef enum
                                        __HAL_PMU_LOCK_REGISTER();\
                                        /* Delay after an PMU function clock enabling */ \
                                        tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN);\
+                                       UNUSED(tmpreg); \
+                                       } while(0U)
+                                                                                        
+#define __HAL_PMU_LPTIM2_CLK_ENABLE()   do { \
+                                       __IO uint32_t tmpreg = 0x00U;\
+                                       __HAL_PMU_UNLOCK_REGISTER();\
+                                       SET_BIT(PMU->FCCR, PMU_FCCR_LPTIM2EN);\
+                                       __HAL_PMU_LOCK_REGISTER();\
+                                       /* Delay after an PMU function clock enabling */ \
+                                       tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM2EN);\
                                        UNUSED(tmpreg); \
                                        } while(0U)
 
@@ -226,21 +226,21 @@ typedef enum
                                         UNUSED(tmpreg); \
                                         } while(0U)
 
-#define __HAL_PMU_LPTIM0_CLK_DISABLE()  do { \
+#define __HAL_PMU_LPTIM1_CLK_DISABLE()  do { \
                                         __IO uint32_t tmpreg = 0x00U;\
                                         __HAL_PMU_UNLOCK_REGISTER();\
-                                        CLEAR_BIT(PMU->FCCR, PMU_FCCR_LPTIM0EN);\
+                                        CLEAR_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN);\
                                         __HAL_PMU_LOCK_REGISTER();\
-                                        tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM0EN);\
+                                        tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN);\
                                         UNUSED(tmpreg); \
                                         } while(0U)
 
-#define __HAL_PMU_LPTIM1_CLK_DISABLE()  do { \
+#define __HAL_PMU_LPTIM2_CLK_DISABLE()  do { \
                                        __IO uint32_t tmpreg = 0x00U;\
                                        __HAL_PMU_UNLOCK_REGISTER();\
-                                       CLEAR_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN);\
+                                       CLEAR_BIT(PMU->FCCR, PMU_FCCR_LPTIM2EN);\
                                        __HAL_PMU_LOCK_REGISTER();\
-                                       tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN);\
+                                       tmpreg = READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM2EN);\
                                        UNUSED(tmpreg); \
                                        } while(0U) 
 
@@ -302,21 +302,21 @@ typedef enum
 
 #endif                                      
                                       
+#define __HAL_PMU_LPTIM2_FORCE_RESET()   do { \
+                                        __IO uint32_t tmpreg; \
+                                        __HAL_PMU_UNLOCK_REGISTER();\
+                                        SET_BIT(PMU->FRCR, PMU_FRCR_LPTIM2RST);\
+                                        __HAL_RCM_LOCK_REGISTER();\
+                                        tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM2RST);\
+                                        UNUSED(tmpreg); \
+                                      } while(0U)
+
 #define __HAL_PMU_LPTIM1_FORCE_RESET()   do { \
                                         __IO uint32_t tmpreg; \
                                         __HAL_PMU_UNLOCK_REGISTER();\
                                         SET_BIT(PMU->FRCR, PMU_FRCR_LPTIM1RST);\
                                         __HAL_RCM_LOCK_REGISTER();\
                                         tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM1RST);\
-                                        UNUSED(tmpreg); \
-                                      } while(0U)
-
-#define __HAL_PMU_LPTIM0_FORCE_RESET()   do { \
-                                        __IO uint32_t tmpreg; \
-                                        __HAL_PMU_UNLOCK_REGISTER();\
-                                        SET_BIT(PMU->FRCR, PMU_FRCR_LPTIM0RST);\
-                                        __HAL_RCM_LOCK_REGISTER();\
-                                        tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM0RST);\
                                         UNUSED(tmpreg); \
                                       } while(0U)
 
@@ -367,21 +367,21 @@ typedef enum
                                       } while(0U)                                         
 #endif                                     
                                       
+#define __HAL_PMU_LPTIM2_RELEASE_RESET()   do { \
+                                        __IO uint32_t tmpreg; \
+                                        __HAL_PMU_UNLOCK_REGISTER();\
+                                        CLEAR_BIT(PMU->FRCR, PMU_FRCR_LPTIM2RST);\
+                                        __HAL_PMU_LOCK_REGISTER();\
+                                        tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM2RST);\
+                                        UNUSED(tmpreg); \
+                                      } while(0U)
+
 #define __HAL_PMU_LPTIM1_RELEASE_RESET()   do { \
                                         __IO uint32_t tmpreg; \
                                         __HAL_PMU_UNLOCK_REGISTER();\
                                         CLEAR_BIT(PMU->FRCR, PMU_FRCR_LPTIM1RST);\
                                         __HAL_PMU_LOCK_REGISTER();\
                                         tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM1RST);\
-                                        UNUSED(tmpreg); \
-                                      } while(0U)
-
-#define __HAL_PMU_LPTIM0_RELEASE_RESET()   do { \
-                                        __IO uint32_t tmpreg; \
-                                        __HAL_PMU_UNLOCK_REGISTER();\
-                                        CLEAR_BIT(PMU->FRCR, PMU_FRCR_LPTIM0RST);\
-                                        __HAL_PMU_LOCK_REGISTER();\
-                                        tmpreg = READ_BIT(PMU->FRCR, PMU_FRCR_LPTIM0RST);\
                                         UNUSED(tmpreg); \
                                       } while(0U)
 
@@ -407,8 +407,8 @@ typedef enum
   */	
 #define __HAL_PMU_LPUART_IS_CLK_ENABLED()		(READ_BIT(PMU->FCCR, PMU_FCCR_LPUARTEN) != RESET)  
 #define __HAL_PMU_IWDT_IS_CLK_ENABLED()			(READ_BIT(PMU->FCCR, PMU_FCCR_IWDTEN) != RESET)
-#define __HAL_PMU_LPTIM0_IS_CLK_ENABLED()		(READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM0EN) != RESET)
 #define __HAL_PMU_LPTIM1_IS_CLK_ENABLED()		(READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM1EN) != RESET)
+#define __HAL_PMU_LPTIM2_IS_CLK_ENABLED()		(READ_BIT(PMU->FCCR, PMU_FCCR_LPTIM2EN) != RESET)
 #define __HAL_PMU_RTC_IS_CLK_ENABLED()			(READ_BIT(PMU->FCCR, PMU_FCCR_RTCEN) != RESET)
 
 /**
@@ -553,8 +553,8 @@ typedef enum
   * @{
   */
 #define PMU_WKE_LPUART1                 PMU_PDWKCR_LPUART1_WEK
+#define PMU_WKE_LPTIM2                  PMU_PDWKCR_LPTIM2_WKE
 #define PMU_WKE_LPTIM1                  PMU_PDWKCR_LPTIM1_WKE
-#define PMU_WKE_LPTIM0                  PMU_PDWKCR_LPTIM0_WKE
 #define PMU_WKE_LPUART0                 PMU_PDWKCR_LPUART0_WKE
 #define PMU_WKE_IWDT                    PMU_PDWKCR_IWDT_WKE
 #define PMU_WKE_RTC_TAMP                PMU_PDWKCR_RTC_TAMP_WKE
@@ -1009,7 +1009,7 @@ typedef enum
                                             __HAL_PMU_UNLOCK_REGISTER();\
                                             /* Config PMU mode:  Standby Mode*/\
                                             MODIFY_REG(PMU->MR, PMU_MR_PMU_MODE, PMU_STANDBY_MODE);\
-                                            /* BKSRAM��IWDT��LPUART��LPTimer 0~1 keep power on */\
+                                            /* BKSRAM��IWDT��LPUART��LPTimer 1~2 keep power on */\
                                             CLEAR_BIT(PMU->MR, PMU_MR_BKSRAMOFF);\
                                             /* Standby mode valid */\
                                             SET_BIT(PMU->MR, PMU_MR_STDBY_EN);\
@@ -1027,7 +1027,7 @@ typedef enum
                                             __HAL_PMU_UNLOCK_REGISTER();\
                                             /* Config PMU mode:  Standby Mode*/\
                                             MODIFY_REG(PMU->MR, PMU_MR_PMU_MODE, PMU_STANDBY_MODE);\
-                                            /* BKSRAM��IWDT��LPUART��LPTimer 0~1 keep power down  */\
+                                            /* BKSRAM��IWDT��LPUART��LPTimer 1~2 keep power down  */\
                                             SET_BIT(PMU->MR, PMU_MR_BKSRAMOFF);\
                                             /* Standby mode valid */\
                                             SET_BIT(PMU->MR, PMU_MR_STDBY_EN);\
@@ -1045,7 +1045,7 @@ typedef enum
                                             __HAL_PMU_UNLOCK_REGISTER();\
                                             /* Config PMU mode:  DeepStandby Mode*/\
                                             MODIFY_REG(PMU->MR, PMU_MR_PMU_MODE, PMU_DEEPSTANDBY_MODE);\
-                                            /* BKSRAM��IWDT��LPUART��LPTimer 0~1 keep power on */\
+                                            /* BKSRAM��IWDT��LPUART��LPTimer 1~2 keep power on */\
                                             CLEAR_BIT(PMU->MR, PMU_MR_BKSRAMOFF);\
                                             /* Standby mode valid */\
                                             SET_BIT(PMU->MR, PMU_MR_STDBY_EN);\
@@ -1063,7 +1063,7 @@ typedef enum
                                             __HAL_PMU_UNLOCK_REGISTER();\
                                             /* Config PMU mode:  DeepStandby Mode*/\
                                             MODIFY_REG(PMU->MR, PMU_MR_PMU_MODE, PMU_DEEPSTANDBY_MODE);\
-                                            /* BKSRAM��IWDT��LPUART��LPTimer 0~1 keep power down  */\
+                                            /* BKSRAM��IWDT��LPUART��LPTimer 1~2 keep power down  */\
                                             SET_BIT(PMU->MR, PMU_MR_BKSRAMOFF);\
                                             /* Standby mode valid */\
                                             SET_BIT(PMU->MR, PMU_MR_STDBY_EN);\
@@ -1125,8 +1125,8 @@ void HAL_PMU_Disable_StandbyMode_WakeUpPin(uint32_t WK_IO);
   * @param WK_EVENT Select the four IO types to wake up in standby mode
   *          This parameter can be one of the following values:
   *            @arg PMU_WKE_LPUART1: In standby0 mode,LPUART1 wakes up
+  *            @arg PMU_WKE_LPTIM2: In standby0 mode,LPTIM2 wakes up
   *            @arg PMU_WKE_LPTIM1: In standby0 mode,LPTIM1 wakes up
-  *            @arg PMU_WKE_LPTIM0: In standby0 mode,LPTIM0 wakes up
   *            @arg PMU_WKE_LPUART0: In standby0 mode,LPUART0 wakes up
   *            @arg PMU_WKE_IWDT: In standby0 mode,IWDT wakes up
   *            @arg PMU_WKE_RTC_TAMP: In standby0/standby1 mode,RTC TAMP wakes up 
@@ -1141,8 +1141,8 @@ void HAL_PMU_Enable_StandbyMode_WakeUpEvent(uint32_t WK_EVENT);
   * @param WK_EVENT Select the four IO types to wake up in standby mode
   *          This parameter can be one of the following values:
   *            @arg PMU_WKE_LPUART1: In standby0 mode,LPUART1 wakes up
+  *            @arg PMU_WKE_LPTIM2: In standby0 mode,LPTIM2 wakes up
   *            @arg PMU_WKE_LPTIM1: In standby0 mode,LPTIM1 wakes up
-  *            @arg PMU_WKE_LPTIM0: In standby0 mode,LPTIM0 wakes up
   *            @arg PMU_WKE_LPUART0: In standby0 mode,LPUART0 wakes up
   *            @arg PMU_WKE_IWDT: In standby0 mode,IWDT wakes up
   *            @arg PMU_WKE_RTC_TAMP: In standby0/standby1 mode,RTC TAMP wakes up 

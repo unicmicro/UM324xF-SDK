@@ -256,8 +256,8 @@ typedef enum
 #define GPIO_AF1_TIM2           (GPIO_AF1  )/* TIM2 Alternate Function mapping */  
 #define GPIO_AF1_LPUART         (GPIO_AF1  )/* LPUART Alternate Function mapping */   
 #define GPIO_AF1_TIM1           (GPIO_AF1 )/* TIM1 Alternate Function mapping */    
-#define GPIO_AF1_LPTIM0         (GPIO_AF1  )/* LPTIME0 Alternate Function mapping */ 
-#define GPIO_AF1_LPTIM1         (GPIO_AF1  )/* LPTIME1 Alternate Function mapping */ 
+#define GPIO_AF1_LPTIM1         (GPIO_AF1  )/* LPTIM1 Alternate Function mapping */
+#define GPIO_AF1_LPTIM2         (GPIO_AF1  )/* LPTIM2 Alternate Function mapping */
   
  #endif  
  #if defined(UM32x41x) 
