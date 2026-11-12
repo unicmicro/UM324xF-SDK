@@ -209,6 +209,8 @@ int usbd_ep0_read(uint8_t *data, uint32_t data_len)
     g_um324xf_udc.out_ep[0].xfer_buf = data;
     g_um324xf_udc.out_ep[0].xfer_len = data_len;
     g_um324xf_udc.out_ep[0].actual_xfer_len = 0;
+	/* Arm the OUT data stage after SETUP, as usbd_ep_start_read() does. */
+	_SetRxValid(0);
 	
     return 0;
 }
